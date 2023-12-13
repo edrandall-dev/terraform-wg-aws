@@ -7,11 +7,11 @@ resource "aws_instance" "edr_wg_instance" {
 
   user_data = templatefile(
     "${path.module}/wg.tftpl",
-      {
-        wg_private_key        = var.wg_private_key 
-        wg_public_key         = var.wg_public_key
-        wg_preshared_key      = var.wg_preshared_key
-      }
+    {
+      wg_private_key   = var.wg_private_key
+      wg_public_key    = var.wg_public_key
+      wg_preshared_key = var.wg_preshared_key
+    }
   )
 
   tags = {

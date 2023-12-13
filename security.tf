@@ -4,9 +4,9 @@ resource "aws_security_group" "edr_wg_sg" {
 
   # SSH access from my IP address
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
     #cidr_blocks = ["${chomp(data.http.outbound_ip.body)}/32"]
     cidr_blocks = ["82.21.53.106/32"]
   }
