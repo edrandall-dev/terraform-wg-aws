@@ -4,7 +4,7 @@ output "ssh_via_internet" {
 }
 
 output "ssh_via_vpn" {
-  value       = "ssh ubuntu@$192.168.0.100 -o 'StrictHostKeyChecking = no' -i ${var.public_key_path}"
+  value       = "ssh ubuntu@192.168.0.100 -o 'StrictHostKeyChecking = no' -i ${var.public_key_path}"
   description = "SSH command to connect to the ec2 instance via the VPN"
 }
 
