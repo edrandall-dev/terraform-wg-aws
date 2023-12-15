@@ -1,5 +1,5 @@
 # terraform-wg-aws
-Terraform code and wireguard config to create a temporary cloud vpn
+Terraform code and wireguard config to create a temporary cloud vpn in AWS using an EC2 instance.
 
 > [!WARNING]
 > Do **not** make this repository public.  It contains keys.
@@ -11,11 +11,11 @@ This terraform code (and associated template file containing a bash script) will
 > If being used when traveling, the script should ideally be run **before** connecting to a hotel / coffee shop wireless network (use the code to create this environment before setting off)
 
 ## Usage instructions
-Obtain the code in the usual way, using ```git clone https://github.com/edrandall-dev/terraform-wg-aws```
+Obtain the code in the usual way, with ```git clone https://github.com/edrandall-dev/terraform-wg-aws```
 
 Ensure that the AWS CLI and terraform are installed and correctly configured on your local machine (laptop)
 
-Change to the code directory with ```cd terraform-wg-aws``` and Run ```terraform apply -auto-approve```
+Change to the code directory with ```cd terraform-wg-aws``` and execute ```terraform apply -auto-approve```
 
 The EC2 instance (and associated cloud resources) will be built within AWS.  Use the Wireguard VPN client (either on local machine or travel router) to connect to the VPN.
 
