@@ -41,3 +41,5 @@ PersistentKeepalive = 30
  - Region switcher
  - Create fresh keys each time and generate config
  - Tidy up outputs
+ - Make listing suitable for a public repository
+ - Diagram
