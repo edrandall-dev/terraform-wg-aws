@@ -35,9 +35,9 @@ PresharedKey = cPyF7XPI4ShtHSxqpqyfrljUPB5AecMM/Lo/M8I/rcM=
 AllowedIPs = 0.0.0.0/0, 192.168.123.0/24
 Endpoint = 35.177.209.77:13231
 PersistentKeepalive = 30
+```
 
 ## Things to do
  - Region switcher
  - Create fresh keys each time and generate config
  - Tidy up outputs
-```
