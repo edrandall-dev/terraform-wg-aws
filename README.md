@@ -39,3 +39,7 @@ Under normal operation, there should be no need to connect to the EC2 instance v
   }
   */
   ```
+
+  To do:
+   - Do both amd64 and arm64 and have some logic in the instances.tf to figure out which type is being used
+  - Move security groups out to separate rules, also do a variable for “insecure_allow_ssh”
