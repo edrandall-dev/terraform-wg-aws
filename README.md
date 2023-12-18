@@ -1,9 +1,6 @@
 # terraform-wg-aws
 Terraform code and wireguard config to create a temporary cloud vpn in AWS using an EC2 instance.
 
-> [!WARNING]
-> Do **not** make this repository public.  It contains keys.
-
 ## Purpose
 This terraform code (and associated template file containing a bash script) will create an EC2 instance which is running wireguard and can be used as a VPN endpoint.  
 
@@ -15,31 +12,29 @@ Obtain the code in the usual way, with ```git clone https://github.com/edrandall
 
 Ensure that the AWS CLI and terraform are installed and correctly configured on your local machine (laptop)
 
-Change to the code directory with ```cd terraform-wg-aws``` and execute ```terraform apply -auto-approve```
+> [!NOTE]
+> The desired region should be set/verified in the ```terraform.tfvars``` file
 
-The EC2 instance (and associated cloud resources) will be built within AWS.  Use the Wireguard VPN client (either on local machine or travel router) to connect to the VPN.
+Change to the code directory with ```cd terraform-wg-aws``` and execute ```./start.sh```
 
-> [!IMPORTANT]
-> Remember to add the correct IP address for the EC2 instance in the local wireguard config when provided by the terraform output.
+The EC2 instance (and associated cloud resources) will be built within AWS.  Keys are automatically created and a "client" configuration will be provided as a terraform output.  This can be pasted into Wireguard VPN client to connect to the VPN.
 
-## Local Wireguard config
+To tear the environment down (and delete keys from ```terraform.tfvars``` run the ```./stop``` script.)
+
+Under normal operation, there should be no need to connect to the EC2 instance via SSH, and as such no SSH keys are created.  The following security group rule in ```security.tf``` can be uncommented if an SSH connection is needed (via EC2 Instance Connect):
+
 ```
-[Interface]
-PrivateKey = eHFmxtHDEokilj8FQHvvdk4KkCS9ArHg3Zb6QOtjMEw=
-Address = 192.168.123.101/32
-DNS = 1.1.1.1
-
-[Peer]
-PublicKey = IHSdnNe14ZIbSwW5YELVjQXMB86rYvL+yyA70c5XWSU=
-PresharedKey = cPyF7XPI4ShtHSxqpqyfrljUPB5AecMM/Lo/M8I/rcM=
-AllowedIPs = 0.0.0.0/0, 192.168.123.0/24
-Endpoint = 35.177.209.77:13231
-PersistentKeepalive = 30
-```
+# SSH access from anywhere
+  /*
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  */
+  ```
 
 ## Things to do
  - Region switcher
- - Create fresh keys each time and generate config
- - Tidy up outputs
- - Make listing suitable for a public repository
  - Diagram

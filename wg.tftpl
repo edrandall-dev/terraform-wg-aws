@@ -15,7 +15,7 @@ cat << EOC > /etc/wireguard/wg0.conf
 Address = 192.168.123.100/32
 
 ## VPN server listening port ##
-ListenPort = 13231
+ListenPort = ${wireguard_port}
 
 ## Peer1 ("VPN Server") private key ##
 PrivateKey = ${p1_private_key}

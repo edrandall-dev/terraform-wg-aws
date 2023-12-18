@@ -1,5 +1,5 @@
-data "http" "outbound_ip" {
-  url = "http://ipv4.icanhazip.com"
+variable "wireguard_port" {
+  description = "The UDP port on which wireguard will be available"
 }
 
 variable "p1_private_key" {
@@ -37,10 +37,6 @@ variable "creator" {
 variable "env_prefix" {
   description = "A variable containting a prefix for other variables"
 }
-
-#variable "public_key_path" {
-#  description = "The location of the SSH key within the local environment"
-#}
 
 variable "instance_type" {
   description = "A variable containing the desired instance type"

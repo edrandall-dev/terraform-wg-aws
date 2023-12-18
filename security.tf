@@ -2,19 +2,21 @@ resource "aws_security_group" "edr_wg_sg" {
   name   = "edr_wg_sg"
   vpc_id = aws_vpc.edr_wg_vpc.id
 
-  # SSH access from my IP address
-  #ingress {
-  #  from_port = 22
-  #  to_port   = 22
-  #  protocol  = "tcp"
-  #  #cidr_blocks = ["${chomp(data.http.outbound_ip.body)}/32"]
-  #  cidr_blocks = ["82.21.53.106/32"]
-  #}
+  
+  # SSH access from anywhere
+  /*
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  */
 
   # Wireguard access from the internet
   ingress {
-    from_port   = 13231
-    to_port     = 13231
+    from_port   = var.wireguard_port
+    to_port     = var.wireguard_port
     protocol    = "udp"
     cidr_blocks = ["0.0.0.0/0"]
   }
