@@ -7,10 +7,14 @@ This terraform code (and associated template file containing a bash script) will
 > [!NOTE]
 > If being used when traveling, the script should ideally be run on a trusted network **before** connecting to a hotel / coffee shop wireless networks.
 
+## Diagram
+Here is a simple diagram showing the AWS resources which are created:
+![Diagram](terraform-wg-vpn.png)
+
 ## Usage instructions
 Obtain the code in the usual way, with ```git clone https://github.com/edrandall-dev/terraform-wg-aws```
 
-Ensure that the AWS CLI and terraform are installed and correctly configured on your local machine (laptop)
+Ensure that the AWS CLI and terraform are installed and correctly configured on your local machine (laptop).
 
 > [!NOTE]
 > The desired region and other user-definable variables should be set/verified in the ```terraform.tfvars``` file.  Keys are created automatically and should be left blank.

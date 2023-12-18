@@ -12,7 +12,7 @@ resource "aws_vpc" "edr_wg_vpc" {
 
 resource "aws_subnet" "edr_wg_public_subnet" {
   vpc_id                  = aws_vpc.edr_wg_vpc.id
-  cidr_block              = cidrsubnet(var.base_cidr_block, 8, 2)
+  cidr_block              = cidrsubnet(var.base_cidr_block, 8, 1)
   availability_zone       = "${var.region}a"
   map_public_ip_on_launch = true
 
