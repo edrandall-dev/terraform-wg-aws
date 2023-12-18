@@ -3,13 +3,13 @@ resource "aws_security_group" "edr_wg_sg" {
   vpc_id = aws_vpc.edr_wg_vpc.id
 
   # SSH access from my IP address
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-    #cidr_blocks = ["${chomp(data.http.outbound_ip.body)}/32"]
-    cidr_blocks = ["82.21.53.106/32"]
-  }
+  #ingress {
+  #  from_port = 22
+  #  to_port   = 22
+  #  protocol  = "tcp"
+  #  #cidr_blocks = ["${chomp(data.http.outbound_ip.body)}/32"]
+  #  cidr_blocks = ["82.21.53.106/32"]
+  #}
 
   # Wireguard access from the internet
   ingress {

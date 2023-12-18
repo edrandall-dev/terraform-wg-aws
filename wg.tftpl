@@ -17,16 +17,16 @@ Address = 192.168.123.100/32
 ## VPN server listening port ##
 ListenPort = 13231
 
-## VPN server private key ##
-PrivateKey = ${wg_private_key}
+## Peer1 ("VPN Server") private key ##
+PrivateKey = ${p1_private_key}
 
 ## Firewall rules ##
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o $WG_INT -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o $WG_INT -j MASQUERADE
 
 [Peer]
-# Public key of the peer
-PublicKey = ${wg_public_key}
+# Peer2 ("VPN Client") Public key 
+PublicKey = ${p2_public_key}
 
 # Allowed IPs that this peer can access through the VPN
 AllowedIPs = 192.168.123.100/24
@@ -35,7 +35,7 @@ AllowedIPs = 192.168.123.100/24
 PersistentKeepalive = 30
 
 # Preshared key for extra security layer
-PresharedKey = ${wg_preshared_key}
+PresharedKey = ${wg_ps_key}
 EOC
 
 sudo chmod -R 600 /etc/wireguard/

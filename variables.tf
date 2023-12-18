@@ -2,16 +2,24 @@ data "http" "outbound_ip" {
   url = "http://ipv4.icanhazip.com"
 }
 
-variable "wg_private_key" {
+variable "p1_private_key" {
   description = "The private key for wireguard"
 }
 
-variable "wg_public_key" {
+variable "p1_public_key" {
   description = "The public key for wireguard"
 }
 
-variable "wg_preshared_key" {
+variable "p2_private_key" {
+  description = "The private key for wireguard"
+}
+
+variable "p2_public_key" {
   description = "The public key for wireguard"
+}
+
+variable "wg_ps_key" {
+  description = "The pre-shared key for wireguard"
 }
 
 variable "region" {
@@ -30,9 +38,9 @@ variable "env_prefix" {
   description = "A variable containting a prefix for other variables"
 }
 
-variable "public_key_path" {
-  description = "The location of the SSH key within the local environment"
-}
+#variable "public_key_path" {
+#  description = "The location of the SSH key within the local environment"
+#}
 
 variable "instance_type" {
   description = "A variable containing the desired instance type"
