@@ -19,7 +19,7 @@ Ensure that the AWS CLI and terraform are installed and correctly configured on 
 > [!NOTE]
 > The desired region and other user-definable variables should be set/verified in the ```terraform.tfvars``` file.  Keys are created automatically and should be left blank.
 
-Change to the code directory with ```cd terraform-wg-aws``` and execute ```./start.sh```
+Change to the code directory with ```cd terraform-wg-aws``` and do ```terraform init`` before executing ```./start.sh```
 
 The EC2 instance (and associated cloud resources) will be built within AWS.  Keys are automatically created and a "client" configuration will be provided as a terraform output.  This can be pasted into Wireguard VPN client to connect to the VPN.
 
