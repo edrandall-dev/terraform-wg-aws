@@ -14,7 +14,7 @@ Here is a simple diagram showing the AWS resources which are created:
 ## Usage instructions
 Obtain the code in the usual way, with ```git clone https://github.com/edrandall-dev/terraform-wg-aws```
 
-Ensure that the AWS CLI and terraform are installed and correctly configured on your local machine (laptop).
+Ensure that the AWS CLI and terraform are installed and correctly configured on your local machine which will serve as the wireguard "client".
 
 > [!NOTE]
 > The desired region and other user-definable variables should be set/verified in the ```terraform.tfvars``` file.  Keys are created automatically and should be left blank.
