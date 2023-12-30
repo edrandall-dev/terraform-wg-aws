@@ -3,7 +3,7 @@ resource "aws_security_group" "edr_wg_sg" {
   vpc_id = aws_vpc.edr_wg_vpc.id
 
   
-  # SSH access from anywhere
+  # SSH access from anywhere, uncomment if needed
   /*
   ingress {
     from_port = 22
