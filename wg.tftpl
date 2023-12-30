@@ -1,4 +1,11 @@
 #!/bin/bash
+
+#
+# Script:  wg.tftpl
+# Purpose: Terraform template file to install wireguard, generate keys and config
+# Author:  Ed Randall, December 2023
+#
+
 EXT_IP=$(curl http://checkip.amazonaws.com)
 
 export DEBIAN_FRONTEND=noninteractive
