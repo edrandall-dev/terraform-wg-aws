@@ -1,5 +1,5 @@
 # terraform-wg-aws
-Terraform code and wireguard config to create a temporary cloud vpn in AWS using an EC2 instance.
+Terraform code, wireguard config (including key generation) to create a temporary cloud vpn in AWS using an EC2 instance.
 
 ## Purpose
 This terraform code (and associated template file containing a bash script) will create an EC2 instance which is running wireguard and can be used as a VPN endpoint.  
